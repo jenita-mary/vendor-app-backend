@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<p>
+    Welcome {{ request.user.username }}
+</p>
+
+<form method="GET">
+
+    <input
+        type="text"
+        name="q"
+        placeholder="Search products..."
+        value="{{ query|default:'' }}"
+    >
+
+    <button type="submit">
+        Search
+    </button>
+
+</form>
+
+<hr>
+
+<h3>Your Products</h3>
+
+<ul>
+
+{% for product in page_obj %}
+
+
+    <li>
+        {{ product.name }}
+        - ₹{{ product.price }}
+    </li>
+
+{% empty %}
+
+    <li>No products found.</li>
+
+{% endfor %}
+
+
+<div>
+
+{% if page_obj.has_previous %}
+
+    <a href="?page={{ page_obj.previous_page_number }}">
+        Previous
+    </a>
+
+{% endif %}
+
+    Page {{ page_obj.number }}
+    of
+    {{ page_obj.paginator.num_pages }}
+
+{% if page_obj.has_next %}
+
+    <a href="?page={{ page_obj.next_page_number }}">
+        Next
+    </a>
+
+{% endif %}
+
+</div>
+
+</ul>
+
+
+<a href="{% url 'logout' %}">
+    Logout
+</a>
+
+{% endblock %}

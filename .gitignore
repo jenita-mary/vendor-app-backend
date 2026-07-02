@@ -11,12 +11,16 @@ __pycache__/
 .env
 
 # Django
+db.sqlite3
 media/
 staticfiles/
 
 # IDE
 .vscode/
 .idea/
+
+# Test Cache
+.pytest_cache/
 
 # Logs
 *.log
