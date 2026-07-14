@@ -36,11 +36,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles','accounts', 'vendors',
     'products',
     'orders','rest_framework','rest_framework.authtoken',
-    'drf_spectacular',
-]
+    'drf_spectacular',  "corsheaders",
+    ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -189,3 +190,7 @@ STORAGES = {
         "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
     },
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]

@@ -1,79 +1,149 @@
-# Vendor App Backend
+# Vendor Management System – Backend API
 
-A production-ready Vendor Management REST API built using **Django** and **Django REST Framework**.
+A production-ready **Vendor Management REST API** built with **Django 5** and **Django REST Framework**.
 
-The application allows vendors to securely manage their products with JWT authentication, object-level permissions, image uploads, search, ordering, pagination, automated testing, and interactive API documentation.
+This project demonstrates modern backend engineering practices including **JWT authentication**, **role-based access control**, **object-level permissions**, **multi-tenant architecture**, **PostgreSQL**, **automated testing**, and **cloud deployment**. It is designed to serve as the backend for a complete Vendor Management System and will later be extended with a React frontend and AI-powered features.
 
 ---
 
-## Features
+# 🚀 Live Demo
+
+**Live API**
+
+https://vendor-app-backend-q553.onrender.com
+
+**Swagger API Documentation**
+
+https://vendor-app-backend-q553.onrender.com/api/docs/
+
+---
+
+# ✨ Features
+
+## Authentication
+
+* JWT Authentication
+* Refresh Token Support
+* Protected REST APIs
+* Custom User Model
+* Role-based Users (Admin, Vendor, Customer)
+
+## Vendor Management
+
+* Vendor Profile Management
+* One-to-One User ↔ Vendor Relationship
+* Secure Vendor Ownership
+* Multi-Tenant Data Isolation
+
+## Product Management
+
+* Create Products
+* Update Products
+* Delete Products
+* Product Detail
+* Product Listing
+* Product Image Upload
+
+## API Features
+
+* RESTful API Design
+* Search
+* Ordering
+* Pagination
+* Interactive Swagger Documentation
+* OpenAPI Schema
+
+## Security
+
+* JWT Authentication
+* Object-Level Permissions
+* Vendor Ownership Validation
+* Multi-Tenant Resource Isolation
+* Resource Hiding (404 for unauthorized resources)
+* Environment-Based Configuration
+* Production Settings Separation
+
+## Testing
+
+The project includes automated tests covering:
+
+* Authentication
+* JWT Tokens
+* Product CRUD Operations
+* Vendor Permissions
+* Search
+* Ordering
+* Pagination
+* Image Upload
+
+Current automated test suite:
+
+* 12+ passing tests
+
+---
+
+# 🏗 Architecture
+
+```text
+                   Client
+                      │
+                      ▼
+          Django REST Framework API
+                      │
+      JWT Authentication & Permissions
+                      │
+        Products | Vendors | Orders
+                      │
+                      ▼
+                 PostgreSQL
+                      │
+                      ▼
+           Render Cloud Deployment
+```
+
+---
+
+# 🛠 Tech Stack
+
+### Backend
+
+* Python 3
+* Django 5
+* Django REST Framework
 
 ### Authentication
 
-- JWT Authentication
-- Refresh Token Support
-- Protected APIs
-- Role-based Users
+* Simple JWT
 
-### Vendor Management
+### Database
 
-- Vendor Registration
-- Vendor Profile
-- Secure Product Ownership
-
-### Product Management
-
-- Create Product
-- Update Product
-- Delete Product
-- Product Detail
-- Product List
-
-### Product Features
-
-- Image Upload
-- Search
-- Ordering
-- Pagination
-
-### Security
-
-- Object-Level Permissions
-- Multi-Tenant Resource Isolation
-- Vendor Ownership Validation
+* PostgreSQL
 
 ### API Documentation
 
-- Swagger UI (drf-spectacular)
-- OpenAPI Schema
+* drf-spectacular (Swagger/OpenAPI)
 
-### Testing
+### Image Processing
 
-- Automated API Tests
-- JWT Tests
-- Permission Tests
-- Search Tests
-- Ordering Tests
-- Pagination Tests
-- Image Upload Tests
+* Pillow
 
----
+### Deployment
 
-## Tech Stack
+* Render
+* Gunicorn
+* WhiteNoise
+* HTTPS
 
-- Python 3.x
-- Django 5
-- Django REST Framework
-- Simple JWT
-- drf-spectacular
-- Pillow
-- SQLite (Development)
+### Configuration
+
+* python-decouple
+* Environment Variables
 
 ---
 
-## Project Structure
+# 📁 Project Structure
 
-```
+```text
 vendor_app/
 │
 ├── accounts/
@@ -81,41 +151,63 @@ vendor_app/
 ├── products/
 ├── orders/
 ├── config/
+│   └── settings/
+│       ├── base.py
+│       ├── development.py
+│       └── production.py
+│
 ├── templates/
 ├── media/
 ├── manage.py
-└── requirements.txt
+├── requirements.txt
+└── README.md
 ```
 
 ---
 
-## API Features
+# 🔒 Production Features
 
-- JWT Authentication
-- CRUD APIs
-- Search
-- Ordering
-- Pagination
-- Image Upload
-- Swagger Documentation
+* Cloud PostgreSQL Database
+* Environment Variable Configuration
+* Gunicorn WSGI Server
+* WhiteNoise Static File Serving
+* HTTPS Deployment
+* Production Settings Module
+* Secure Secret Management
 
 ---
 
-## Running the Project
+# 📚 API Documentation
 
-### Clone Repository
+Swagger UI
+
+```text
+/api/docs/
+```
+
+OpenAPI Schema
+
+```text
+/api/schema/
+```
+
+---
+
+# 🧪 Running the Project Locally
+
+## Clone Repository
 
 ```bash
 git clone https://github.com/jenita-mary/vendor-app-backend.git
 ```
 
-### Create Virtual Environment
+## Create Virtual Environment
 
 ```bash
 python -m venv venv
 ```
 
-### Activate Virtual Environment
+## Activate Virtual Environment
 
 Windows
 
@@ -129,19 +221,32 @@ Linux / macOS
 source venv/bin/activate
 ```
 
-### Install Dependencies
+## Install Dependencies
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run Migrations
+## Configure Environment Variables
+
+Create a `.env` file and configure:
+
+* SECRET_KEY
+* DEBUG
+* ALLOWED_HOSTS
+* DB_NAME
+* DB_USER
+* DB_PASSWORD
+* DB_HOST
+* DB_PORT
+
+## Apply Migrations
 
 ```bash
 python manage.py migrate
 ```
 
-### Start Development Server
+## Run Development Server
 
 ```bash
 python manage.py runserver
@@ -149,25 +254,9 @@ python manage.py runserver
 
 ---
 
-## API Documentation
+# ✅ Running Tests
 
-Swagger UI
-
-```
-/api/docs/
-```
-
-OpenAPI Schema
-
-```
-/api/schema/
-```
-
----
-
-## Testing
-
-Run all automated tests
+Execute the complete automated test suite:
 
 ```bash
 python manage.py test
@@ -175,22 +264,44 @@ python manage.py test
 
 ---
 
-## Future Enhancements
+# 🚀 Roadmap
 
-- PostgreSQL
-- Docker
-- CI/CD
-- React Frontend
-- AI Product Description Generator
-- AI Product Categorization
-- AI Product Search
+## Completed
+
+* Django 5
+* Django REST Framework
+* PostgreSQL
+* JWT Authentication
+* Vendor Management
+* Product CRUD
+* Image Upload
+* Search
+* Ordering
+* Pagination
+* Swagger Documentation
+* Automated Testing
+* Render Deployment
+* WhiteNoise
+* Gunicorn
+* HTTPS
+
+## Planned
+
+* React Frontend
+* AI Product Description Generator
+* AI Category Suggestion
+* Natural Language Product Search
+* AI Insights Dashboard
+* Docker
+* CI/CD Pipeline
+* Performance Monitoring
+* Caching
 
 ---
 
-## Author
+# 👨‍💻 Author
 
-Jenita Mary
+**Jenita Mary**
 
-GitHub
-
+GitHub:
 https://github.com/jenita-mary
