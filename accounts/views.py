@@ -5,7 +5,26 @@ from products.models import Product
 from vendors.models import Vendor
 from .forms import VendorRegistrationForm
 from django.core.paginator import Paginator
- 
+
+from django.contrib.auth import get_user_model
+from django.http import HttpResponse
+from decouple import config
+
+User = get_user_model()
+
+
+def create_admin(request):
+
+    if User.objects.filter(username="admin").exists():
+        return HttpResponse("Admin already exists")
+
+    User.objects.create_superuser(
+        username="admin",
+        email="admin@example.com",
+        password=config("INITIAL_ADMIN_PASSWORD"),
+    )
+
+    return HttpResponse("Admin created successfully")
 
 
 def login_view(request):

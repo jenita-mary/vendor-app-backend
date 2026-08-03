@@ -28,3 +28,12 @@ staticfiles/
 # OS files
 .DS_Store
 Thumbs.db
+
+# React
+vendor_frontend/node_modules/
+vendor_frontend/dist/
+
+# Environment files
+vendor_frontend/.env.local
+vendor_frontend/.env.production.local
+vendor_frontend/.env.development.local
