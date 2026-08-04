@@ -18,14 +18,15 @@ function App() {
   const [token, setToken] = useState("");
 
 function handleLoginSuccess(accessToken, refreshToken) {
-    localStorage.setItem("accessToken", accessToken);
-    localStorage.setItem("refreshToken", refreshToken);
+    localStorage.setItem("token", accessToken);
+    localStorage.setItem("refresh", refreshToken);
     setToken(accessToken);
     setIsLoggedIn(true);
   }
 
   function handleLogOut() {
     localStorage.removeItem("token")
+    localStorage.removeItem("refresh")
     setToken("");
     setIsLoggedIn(false);
 
