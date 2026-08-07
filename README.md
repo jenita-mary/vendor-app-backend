@@ -29,8 +29,9 @@ The application demonstrates modern backend engineering practices including secu
 - [Project Structure](#-project-structure)
 - [Production Features](#-production-features)
 - [API Documentation](#-api-documentation)
-- [Core API Endpoints](#core-api-endpoints)
-- [Engineering Highlights](#engineering-highlights)
+- [Core API Endpoints](#-core-api-endpoints)
+- [Engineering Highlights](#-engineering-highlights)
+- [Screenshots](#-screenshots)
 - [Running the Project Locally](#-running-the-project-locally)
 - [Running Tests](#-running-tests)
 - [Roadmap](#-roadmap)
@@ -342,13 +343,14 @@ python manage.py test
 
 ## Future Enhancements
 
-AI Product Description Generator
-AI Product Categorization
-AI Search Assistant
-Docker
-CI/CD Pipeline
-Redis Caching
-Performance Monitoring
+- AI Product Description Generator
+- AI Product Categorization
+- AI Search Assistant
+- AI Analytics Dashboard
+- Docker
+- CI/CD Pipeline
+- Redis Caching
+- Performance Monitoring
 
 ---
 
