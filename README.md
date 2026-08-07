@@ -1,10 +1,40 @@
 # Vendor Management System – Backend API
 
-A production-ready **Vendor Management REST API** built with **Django 5** and **Django REST Framework**.
+![Python](https://img.shields.io/badge/Python-3.13-blue)
 
-This project demonstrates modern backend engineering practices including **JWT authentication**, **role-based access control**, **object-level permissions**, **multi-tenant architecture**, **PostgreSQL**, **automated testing**, and **cloud deployment**. It is designed to serve as the backend for a complete Vendor Management System and will later be extended with a React frontend and AI-powered features.
+![Django](https://img.shields.io/badge/Django-5.2-darkgreen)
+
+![DRF](https://img.shields.io/badge/DRF-REST-red)
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Database-blue)
+
+![JWT](https://img.shields.io/badge/Auth-JWT-orange)
+
+![Render](https://img.shields.io/badge/Deploy-Render-purple)
+
+
+
+A production-ready **Vendor Management REST API** built with **Django 5**, **Django REST Framework**, and **PostgreSQL**.
+
+The application demonstrates modern backend engineering practices including secure JWT authentication, multi-tenant authorization, object-level permissions, automated testing, production deployment, and a scalable project architecture. It serves as the backend for a full-stack Vendor Management System with a React frontend and upcoming AI-powered features.
 
 ---
+
+## Table of Contents
+
+- [Live Demo](#-live-demo)
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [Tech Stack](#-tech-stack)
+- [Project Structure](#-project-structure)
+- [Production Features](#-production-features)
+- [API Documentation](#-api-documentation)
+- [Core API Endpoints](#core-api-endpoints)
+- [Engineering Highlights](#engineering-highlights)
+- [Running the Project Locally](#-running-the-project-locally)
+- [Running Tests](#-running-tests)
+- [Roadmap](#-roadmap)
+- [Author](#-author)
 
 # 🚀 Live Demo
 
@@ -85,20 +115,22 @@ Current automated test suite:
 # 🏗 Architecture
 
 ```text
-                   Client
-                      │
-                      ▼
-          Django REST Framework API
-                      │
-      JWT Authentication & Permissions
-                      │
-        Products | Vendors | Orders
-                      │
-                      ▼
-                 PostgreSQL
-                      │
-                      ▼
-           Render Cloud Deployment
+               Browser / React Frontend
+                         │
+                         ▼
+               Django REST Framework API
+                         │
+               JWT Authentication
+                    & Permissions
+                         │
+               ──────────────────────────────
+               Accounts   Vendors   Products
+                         │
+                         ▼
+                    PostgreSQL
+                         │
+                         ▼
+                    Render Cloud
 ```
 
 ---
@@ -192,6 +224,29 @@ OpenAPI Schema
 ```
 
 ---
+# Core API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/token/ | Obtain JWT Token |
+| POST | /api/token/refresh/ | Refresh JWT Token |
+| GET | /api/products/ | List Products |
+| POST | /api/products/ | Create Product |
+| GET  | /api/products/{id}/
+| PATCH | /api/products/{id}/ | Update Product |
+| DELETE | /api/products/{id}/ | Delete Product |
+
+# Engineering Highlights
+
+- Custom User Model with role-based access control
+- JWT Authentication with automatic refresh tokens
+- Object-level permissions for multi-tenant security
+- Environment-specific Django settings
+- Production-ready deployment on Render
+- PostgreSQL integration
+- RESTful API design
+- Interactive Swagger documentation
+- Automated backend testing
 
 # 🧪 Running the Project Locally
 
@@ -285,23 +340,44 @@ python manage.py test
 * Gunicorn
 * HTTPS
 
-## Planned
+## Future Enhancements
 
-* React Frontend
-* AI Product Description Generator
-* AI Category Suggestion
-* Natural Language Product Search
-* AI Insights Dashboard
-* Docker
-* CI/CD Pipeline
-* Performance Monitoring
-* Caching
+AI Product Description Generator
+AI Product Categorization
+AI Search Assistant
+Docker
+CI/CD Pipeline
+Redis Caching
+Performance Monitoring
 
 ---
+
+# 📸 Screenshots
+
+## Swagger API Documentation
+
+Interactive API documentation generated using **drf-spectacular** and **OpenAPI 3.0**.
+
+![Swagger UI](screenshots/swagger-ui.png)
+
+---
+
+## Django Administration Dashboard
+
+The Django admin interface provides centralized management for users, products, vendors, and orders.
+
+![Admin Dashboard](screenshots/admin-dashboard.png)
+
+---
+
+## Custom User Model
+
+A customized Django User model with role-based access control for **Admin**, **Vendor**, and **Customer** accounts.
+
+![Custom User Model](screenshots/custom-user-model.png)
 
 # 👨‍💻 Author
 
 **Jenita Mary**
 
-GitHub:
-https://github.com/jenita-mary
+GitHub: **https://github.com/jenita-mary**
