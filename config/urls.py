@@ -60,6 +60,7 @@ urlpatterns = [
         ),
         name='swagger-ui'
     ),
+    path("api/ai/", include("ai.urls")),
 
 ]   
 

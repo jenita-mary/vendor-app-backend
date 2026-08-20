@@ -24,6 +24,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = config("SECRET_KEY")
 
+GEMINI_API_KEY = config("GEMINI_API_KEY")
+
 
 # Application definition
 
@@ -36,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles','accounts', 'vendors',
     'products',
     'orders','rest_framework','rest_framework.authtoken',
-    'drf_spectacular',  "corsheaders",
+    'drf_spectacular',  "corsheaders", "ai",
     ]
 
 MIDDLEWARE = [
