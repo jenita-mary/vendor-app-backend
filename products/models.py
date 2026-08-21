@@ -1,6 +1,7 @@
 from django.db import models
 from vendors.models import Vendor
 import os
+from cloudinary.models import CloudinaryField
 
 
 class Product(models.Model):
@@ -17,10 +18,10 @@ class Product(models.Model):
         decimal_places=2
     )
 
-    image = models.ImageField(
-    upload_to="products/",
-    blank=True,
-    null=True
+    image = CloudinaryField(
+        "image",
+        blank=True,
+        null=True
     )
     stock = models.PositiveIntegerField(default=0)
 
