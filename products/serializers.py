@@ -1,12 +1,9 @@
-# products/serializers.py
-
 from rest_framework import serializers
 from .models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
 
-    image = serializers.SerializerMethodField()
     class Meta:
         model = Product
         fields = [
@@ -19,8 +16,10 @@ class ProductSerializer(serializers.ModelSerializer):
             'created_at',
         ]
 
-    def get_image(self, obj):
-        if not obj.image:
-            return None
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
 
-        return obj.image.build_url(secure=True)
+        if instance.image:
+            data["image"] = instance.image.build_url(secure=True)
+
+        return data
