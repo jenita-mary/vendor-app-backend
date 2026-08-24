@@ -29,17 +29,6 @@ class Product(models.Model):
 
 
     def save(self, *args, **kwargs):
-
-        if self.pk:
-            old_product = Product.objects.get(pk=self.pk)
-
-            if (
-                old_product.image and
-                old_product.image != self.image
-            ):
-                if os.path.isfile(old_product.image.path):
-                    os.remove(old_product.image.path)
-
         super().save(*args, **kwargs)
         
     def __str__(self):
