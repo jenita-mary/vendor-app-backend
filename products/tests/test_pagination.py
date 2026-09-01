@@ -45,5 +45,5 @@ class PaginationTests(BaseProductAPITest):
 
         self.assertEqual(
             len(response.data["results"]),
-            3
+            5
         )
